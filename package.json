@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "test": "jest",
     "test:coverage": "jest --coverage",
-    "start": "vite",
     "cy:open": "cypress open",
     "cy:run": "cypress run"
   },

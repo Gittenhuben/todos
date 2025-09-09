@@ -9,6 +9,39 @@ const LIST_ANIMATION_DURATION_MS = 1250;
 
 const LIST_DESTRUCTION_DELAY = LIST_ANIMATION_DURATION_MS + 1000;
 
+
+const useVHChangeTracker = (callback: () => void) => {
+  const lastVH = useRef(0);
+
+  useEffect(() => {
+    const getVH = () => {
+      if (window.visualViewport) {
+        return window.visualViewport.height;
+      }
+      return window.innerHeight;
+    };
+
+    lastVH.current = getVH();
+
+    const handleResize = () => {
+      const currentVH = getVH();
+      
+      if (Math.abs(currentVH - lastVH.current) > 0.5) {
+        lastVH.current = currentVH;
+        callback();
+      }
+    };
+
+    const eventTarget = window.visualViewport || window;
+    eventTarget.addEventListener('resize', handleResize);
+    
+    return () => {
+      eventTarget.removeEventListener('resize', handleResize);
+    };
+  }, [callback]);
+};
+
+
 interface IListProps {
   items: TItem[],
   activeItemsCount: number,
@@ -27,6 +60,7 @@ export const List: React.FC<IListProps> = ({ items, activeItemsCount, activeFilt
   const [footerHeightDiffCurrent, setFooterHeightDiffCurrent] = useState(0);
   const [footerAnimating, setFooterAnimating] = useState(true);
 
+
   function showLastListDelayed() {
     setTimeout(() => {
       setListsArray(prevLists => prevLists.map((list, index) => {
@@ -42,6 +76,17 @@ export const List: React.FC<IListProps> = ({ items, activeItemsCount, activeFilt
     showLastListDelayed();
   }, []);
 
+
+  // List animation
+  function updatePrevListHeight() {
+    const lastListId = listsArray[listsArray.length - 1].id;
+    const lastList = listsArrayRefs.current[lastListId.toString()];
+    if (!lastList) return;
+    const newListHeight = lastList.getBoundingClientRect().height;
+    prevListHeight.current = newListHeight;
+  }
+  
+  useVHChangeTracker(updatePrevListHeight);
 
   // List animation
   useEffect(() => {

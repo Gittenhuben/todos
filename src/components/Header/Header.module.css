@@ -6,3 +6,9 @@
   letter-spacing: 1px;
   -webkit-text-stroke: 0.1px var(--background-color);
 }
+
+@media (max-height: 360px) {
+  .title {
+    font-size: 40px;
+  }
+}
