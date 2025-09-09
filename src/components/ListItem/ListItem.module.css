@@ -1,0 +1,62 @@
+.list-item {
+  display: flex;
+  background: var(--list-background-color);
+  align-items: center;
+  min-height: 59px;
+}
+
+.button {
+  background-color: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 0px;
+  padding-block-start: 4px;
+  padding-inline-start: 5px;
+  border: 2px solid var(--list-checkbox-border-color);
+  margin: 0 10px;
+  color: transparent;
+  transition: outline, color, border-color;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.5s;
+  outline: 1px solid transparent;
+}
+
+.button:hover {
+  outline-color: var(--list-checkbox-checked-border-color);
+}
+
+.button.task-completed {
+  border-color: var(--list-checkbox-checked-border-color);
+  color: var(--list-checkbox-font-color);
+}
+
+.input {
+  font-size: 24px;
+  padding: 0 10px;
+  margin-inline-end: 10px;
+  color: var(--input-font-color);
+  letter-spacing: 0.55px;
+  transition: color, text-decoration-color, outline-color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  text-decoration-color: transparent;
+  width: 100%;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  outline: 1px solid transparent;
+  min-height: 40px;
+}
+
+.input.task-completed {
+  color: var(--task-text-completed-font-color);
+  text-decoration: line-through;
+  text-decoration-color: var(--task-text-completed-font-color);
+}
+
+input:hover {
+  outline: 1px solid var(--outline-color);
+  outline-offset: -1px;
+}

@@ -1,0 +1,53 @@
+.footer {
+  min-height: 41px;
+  background: var(--list-background-color);
+  display: grid;
+  grid-template-columns: calc(100% * 150 / 569) calc(100% * 270 / 569) calc(100% * 149 / 569);
+  align-items: center;
+  box-shadow:
+    0 1px 3px 1px var(--shadow-color),
+    0 8px 0 -3px var(--list-background-color),
+    0 9px 3px -2px var(--shadow-color),
+    0 16px 0 -6px var(--list-background-color),
+    0 17px 3px -5px var(--shadow-color)
+}
+
+.button {
+  font-size: 15.2px;
+  letter-spacing: -0.35px;
+  color: var(--list-footer-text-color);
+  margin-inline: 4.5px;
+  padding-inline: 8px;
+  min-height: 26px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  background-color: transparent;
+  transition: border-color, outline-color, background-color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in-out;
+  outline: 1px solid transparent;
+}
+
+.filter-active {
+  border-color: var(--list-footer-active-filter-border-color);
+}
+
+.button-left {
+  justify-self: start;
+  margin-inline-start: 6.5px;
+  letter-spacing: -0.3px;
+}
+
+.button-right {
+  justify-self: end;
+  margin-inline-end: 6px;
+}
+
+.button:hover {
+  outline-color: var(--outline-color);
+}
+
+.button:active {
+  background-color: var(--list-footer-button-clicked-color);
+  transition: background-color 0s;
+}

@@ -1,0 +1,44 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: #f5f5f5;
+  --shadow-color: #cfcfcf;
+  --outline-color: #e0e0e0;
+
+  --title-font-color: #e8d6d5;
+
+  --list-background-color: #fff;
+
+  --input-font-color: #3c3c3c;
+  --input-placeholder-font-color: #e4e4e4;
+  --task-text-completed-font-color: #d7d7d7;
+  --list-header-background-color: #fefefe;
+  --list-header-prefix-font-color: var(--input-placeholder-font-color);
+
+  --list-checkbox-border-color: #f2f2f2;
+  --list-checkbox-checked-border-color: #d1e2df;
+  --list-checkbox-font-color: #65b8a4;
+
+  --list-footer-text-color: #858585;
+  --list-footer-active-filter-border-color: #eedcdc;
+  --list-footer-button-clicked-color: var(--outline-color);
+}
+
+body {
+  background-color: var(--background-color);
+  text-align: center;
+  margin: 0 auto;
+  max-width: 601px;
+  padding: 16px;
+}
+
+body,
+button,
+input {
+  font-family: "Helvetica-Neue", sans-serif;
+  font-weight: 300;
+}
