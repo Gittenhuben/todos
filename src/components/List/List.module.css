@@ -19,6 +19,12 @@
   position: relative;
 }
 
+@media (max-height: 360px) {
+  .list {
+    max-height: calc(100vh - 202px);
+  }
+}
+
 .list-hide {
   position: absolute;
   top: 67px;
