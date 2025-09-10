@@ -77,7 +77,7 @@ export const List: React.FC<IListProps> = ({ items, activeItemsCount, activeFilt
   }, []);
 
 
-  // List animation
+  // Update footer position
   function updatePrevListHeight() {
     const lastListId = listsArray[listsArray.length - 1].id;
     const lastList = listsArrayRefs.current[lastListId.toString()];
